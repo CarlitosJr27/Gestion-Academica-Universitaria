@@ -21,16 +21,12 @@ public class Estudiante {
         this.grupo = grupo;
     }
 
-    public String obtenerPromedio() {
-        // Lógica para calcular promedio
-        return "Promedio calculado";
-    }
-
     public void editar(String nuevoNombre, String nuevoCorreo) {
         this.nombre = nuevoNombre;
         this.correo = nuevoCorreo;
     }
 
-    // Getters y setters omitidos por brevedad
+    public String obtenerPromedio() {
+        return "Promedio calculado";
+    }
 }
-
