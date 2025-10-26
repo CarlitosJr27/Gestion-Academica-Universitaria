@@ -29,4 +29,26 @@ public class Estudiante {
     public String obtenerPromedio() {
         return "Promedio calculado";
     }
+
+    // Getters
+    public String getId() {
+        return id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public String getCarrera() {
+        return carrera;
+    }
+
+    public String getGrupo() {
+        return grupo;
+    }
 }
+
