@@ -1,5 +1,6 @@
 package utp.Ac.Pa.sistema.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Docente {
@@ -12,6 +13,7 @@ public class Docente {
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
+        this.asignaturas = new ArrayList<>();
     }
 
     public void asignarAsignatura(String asignatura) {
@@ -22,5 +24,21 @@ public class Docente {
         this.nombre = nuevoNombre;
         this.correo = nuevoCorreo;
     }
-}
 
+    // Getters
+    public String getId() {
+        return id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public List<String> getAsignaturas() {
+        return asignaturas;
+    }
+}
