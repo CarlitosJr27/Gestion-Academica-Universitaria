@@ -12,6 +12,7 @@ public class Carrera {
     }
 
     public boolean validarRequisitos(Estudiante estudiante) {
+        // lógica de validación simplificada
         return true;
     }
 
