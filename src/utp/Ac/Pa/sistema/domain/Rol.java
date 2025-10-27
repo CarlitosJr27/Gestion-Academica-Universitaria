@@ -18,4 +18,25 @@ public class Rol {
     public boolean validarAcceso(String permiso) {
         return permisos.contains(permiso);
     }
+
+    public void mostrarRol() {
+        System.out.println("Rol: " + nombre);
+    }
+
+    // Getters y Setters
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public List<String> getPermisos() {
+        return permisos;
+    }
+
+    public void setPermisos(List<String> permisos) {
+        this.permisos = permisos;
+    }
 }
