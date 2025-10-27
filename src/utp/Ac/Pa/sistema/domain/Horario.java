@@ -41,4 +41,3 @@ public class Horario {
         this.horaFin = horaFin;
     }
 }
-
