@@ -12,11 +12,37 @@ public class Reporte {
     }
 
     public void generar() {
-        // lógica de generación
+        System.out.println("Generando reporte para: " + estudiante.getNombre());
+        System.out.println("Promedio: " + promedio);
+        System.out.println("Observaciones: " + observaciones);
     }
 
     public void exportarPDF() {
-        // lógica de exportación
+        System.out.println("Exportando reporte en PDF...");
+    }
+
+    // Getters y Setters
+    public Estudiante getEstudiante() {
+        return estudiante;
+    }
+
+    public void setEstudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
+    }
+
+    public double getPromedio() {
+        return promedio;
+    }
+
+    public void setPromedio(double promedio) {
+        this.promedio = promedio;
+    }
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
     }
 }
-
