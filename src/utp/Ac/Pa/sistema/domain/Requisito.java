@@ -1,43 +1,33 @@
 package utp.Ac.Pa.sistema.domain;
 
-public class Horario {
-    private String dia;
-    private String horaInicio;
-    private String horaFin;
+public class Requisito {
+    private String descripcion;
+    private Asignatura asignatura;
 
-    public Horario(String dia, String horaInicio, String horaFin) {
-        this.dia = dia;
-        this.horaInicio = horaInicio;
-        this.horaFin = horaFin;
+    public Requisito(String descripcion, Asignatura asignatura) {
+        this.descripcion = descripcion;
+        this.asignatura = asignatura;
     }
 
-    public boolean validarConflicto(Horario otro) {
-        return this.dia.equals(otro.dia) &&
-               this.horaInicio.equals(otro.horaInicio);
+    public boolean verificarCumplimiento(Estudiante estudiante) {
+        // Aquí puedes agregar lógica real de verificación
+        return true;
     }
 
     // Getters y Setters
-    public String getDia() {
-        return dia;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setDia(String dia) {
-        this.dia = dia;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public String getHoraInicio() {
-        return horaInicio;
+    public Asignatura getAsignatura() {
+        return asignatura;
     }
 
-    public void setHoraInicio(String horaInicio) {
-        this.horaInicio = horaInicio;
-    }
-
-    public String getHoraFin() {
-        return horaFin;
-    }
-
-    public void setHoraFin(String horaFin) {
-        this.horaFin = horaFin;
+    public void setAsignatura(Asignatura asignatura) {
+        this.asignatura = asignatura;
     }
 }
