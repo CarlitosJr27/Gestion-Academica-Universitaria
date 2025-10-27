@@ -12,7 +12,11 @@ public class Carrera {
     }
 
     public boolean validarRequisitos(Estudiante estudiante) {
-        // lógica de validación simplificada
+        for (Requisito r : requisitos) {
+            if (!r.verificarCumplimiento(estudiante)) {
+                return false;
+            }
+        }
         return true;
     }
 
@@ -37,4 +41,3 @@ public class Carrera {
         this.requisitos = requisitos;
     }
 }
-
