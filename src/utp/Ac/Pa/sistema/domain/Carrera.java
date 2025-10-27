@@ -12,12 +12,28 @@ public class Carrera {
     }
 
     public boolean validarRequisitos(Estudiante estudiante) {
-        // lógica de validación
         return true;
     }
 
     public void asignarEstudiante(Estudiante estudiante) {
         estudiante.asignarCarrera(nombre);
+    }
+
+    // Getters y Setters
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public List<Requisito> getRequisitos() {
+        return requisitos;
+    }
+
+    public void setRequisitos(List<Requisito> requisitos) {
+        this.requisitos = requisitos;
     }
 }
 
