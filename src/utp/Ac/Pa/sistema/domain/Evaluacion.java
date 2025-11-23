@@ -15,48 +15,14 @@ public class Evaluacion {
         this.asignatura = asignatura;
     }
 
-    public double calcularPromedio() {
-        return nota;
+    public void registrarNota(double nuevaNota) {
+        this.nota = nuevaNota;
     }
 
     // Getters y Setters
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public double getNota() {
-        return nota;
-    }
-
-    public void setNota(double nota) {
-        this.nota = nota;
-    }
-
-    public String getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-
-    public Estudiante getEstudiante() {
-        return estudiante;
-    }
-
-    public void setEstudiante(Estudiante estudiante) {
-        this.estudiante = estudiante;
-    }
-
-    public Asignatura getAsignatura() {
-        return asignatura;
-    }
-
-    public void setAsignatura(Asignatura asignatura) {
-        this.asignatura = asignatura;
-    }
+    public String getTipo() { return tipo; }
+    public double getNota() { return nota; }
+    public String getFecha() { return fecha; }
+    public Estudiante getEstudiante() { return estudiante; }
+    public Asignatura getAsignatura() { return asignatura; }
 }
