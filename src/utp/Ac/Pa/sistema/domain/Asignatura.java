@@ -11,8 +11,25 @@ public class Asignatura {
         this.creditos = creditos;
     }
 
-    // Getters y Setters
-    public String getCodigo() { return codigo; }
-    public String getNombre() { return nombre; }
-    public int getCreditos() { return creditos; }
+    // Getters
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getCreditos() {
+        return creditos;
+    }
+
+    // Setters (necesarios para GestorAcademico)
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setCreditos(int creditos) {
+        this.creditos = creditos;
+    }
 }
