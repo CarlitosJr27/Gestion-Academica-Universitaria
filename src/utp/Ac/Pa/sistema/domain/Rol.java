@@ -6,10 +6,18 @@ public class Rol {
     private String nombre;
     private List<String> permisos;
 
+    // Constructor completo
     public Rol(String nombre, List<String> permisos) {
         this.nombre = nombre;
         this.permisos = permisos;
     }
+
+    // Constructor alternativo
+    public Rol(String nombre) {
+        this.nombre = nombre;
+        this.permisos = new java.util.ArrayList<>();
+    }
+
 
     public void asignarPermiso(String permiso) {
         this.permisos.add(permiso);
