@@ -1,25 +1,12 @@
 package utp.Ac.Pa.sistema.utils;
 
 import javax.swing.JOptionPane;
-import utp.Ac.Pa.sistema.domain.Estudiante;
-import utp.Ac.Pa.sistema.domain.Usuario;
 
-public class EstudianteVentana {
-    public static void main(String[] args) {
-        String id = solicitarNoVacio("ID del estudiante:");
-        String nombre = solicitarSoloLetras("Nombre del estudiante:");
-        String correo = solicitarCorreo("Correo del estudiante:");
+public final class ValidationUtils {
 
-        Usuario cuenta = new Usuario("usuarioEst", "clave123", null);
-        Estudiante estudiante = new Estudiante(id, nombre, correo, cuenta);
+    private ValidationUtils() {} // Evitar instanciación
 
-        JOptionPane.showMessageDialog(null,
-            "Estudiante creado:\nID: " + estudiante.getId() +
-            "\nNombre: " + estudiante.getNombre() +
-            "\nCorreo: " + estudiante.getCorreo());
-    }
-
-    private static String solicitarNoVacio(String mensaje) {
+    public static String solicitarNoVacio(String mensaje) {
         String valor;
         while (true) {
             valor = JOptionPane.showInputDialog(mensaje);
@@ -32,7 +19,7 @@ public class EstudianteVentana {
         }
     }
 
-    private static String solicitarSoloLetras(String mensaje) {
+    public static String solicitarSoloLetras(String mensaje) {
         String valor;
         while (true) {
             valor = JOptionPane.showInputDialog(mensaje);
@@ -42,13 +29,12 @@ public class EstudianteVentana {
             }
             valor = valor.trim();
             if (!valor.isEmpty() && valor.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+")) return valor;
-            JOptionPane.showMessageDialog(null, "Nombre inválido. Solo se permiten letras y espacios.");
+            JOptionPane.showMessageDialog(null, "Solo se permiten letras y espacios.");
         }
     }
 
-    private static String solicitarCorreo(String mensaje) {
+    public static String solicitarCorreo(String mensaje) {
         String valor;
-        // Patrón simple de correo: texto@texto.dominio
         String regex = "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$";
         while (true) {
             valor = JOptionPane.showInputDialog(mensaje);
@@ -59,6 +45,23 @@ public class EstudianteVentana {
             valor = valor.trim();
             if (!valor.isEmpty() && valor.matches(regex)) return valor;
             JOptionPane.showMessageDialog(null, "Correo inválido. Ejemplo: usuario@dominio.com");
+        }
+    }
+
+    public static int solicitarEnteroPositivo(String mensaje) {
+        while (true) {
+            String entrada = JOptionPane.showInputDialog(mensaje);
+            if (entrada == null) {
+                JOptionPane.showMessageDialog(null, "Operación cancelada.");
+                System.exit(0);
+            }
+            try {
+                int numero = Integer.parseInt(entrada.trim());
+                if (numero > 0) return numero;
+                JOptionPane.showMessageDialog(null, "Debe ser un número positivo.");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Entrada inválida. Ingrese un número entero.");
+            }
         }
     }
 }
