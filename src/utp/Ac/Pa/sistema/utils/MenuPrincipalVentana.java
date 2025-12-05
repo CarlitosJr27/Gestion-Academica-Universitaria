@@ -21,7 +21,10 @@ public class MenuPrincipalVentana {
                 "2. Registrar Docente\n" +
                 "3. Registrar Asignatura\n" +
                 "4. Registrar Grupo\n" +
-                "5. Salir\n\n" +
+                "5. Registrar Requisito\n" +
+                "6. Registrar Carrera\n" +
+                "7. Reporte\n" +
+                "8. Salir\n\n" +
                 "Ingrese una opción:"
             );
 
@@ -35,6 +38,9 @@ public class MenuPrincipalVentana {
                 case "2": registrarDocente(); break;
                 case "3": registrarAsignatura(); break;
                 case "4": registrarGrupo(); break;
+                case "5": RequisitoVentana.main(args); break;
+                case "6": CarreraVentana.main(args); break;
+                case "7": ReporteVentana.main(args); break;
                 default: JOptionPane.showMessageDialog(null, "Opción inválida.");
             }
         }
@@ -42,14 +48,14 @@ public class MenuPrincipalVentana {
 
     private static void registrarEstudiante() {
         String id = solicitarNoVacio("ID del estudiante:");
-        String nombre = solicitarSoloLetras("Nombre del estudiante (solo letras):");
+        String nombre = solicitarSoloLetras("Nombre del estudiante:");
         String correo = solicitarCorreo("Correo del estudiante:");
 
         Usuario cuenta = new Usuario("usuarioEst", "clave123", null);
         Estudiante estudiante = new Estudiante(id, nombre, correo, cuenta);
 
         JOptionPane.showMessageDialog(null,
-            "✅ Estudiante creado:\nID: " + estudiante.getId() +
+            "Estudiante creado:\nID: " + estudiante.getId() +
             "\nNombre: " + estudiante.getNombre() +
             "\nCorreo: " + estudiante.getCorreo());
     }
@@ -63,7 +69,7 @@ public class MenuPrincipalVentana {
         Docente docente = new Docente(id, nombre, correo, cuenta);
 
         JOptionPane.showMessageDialog(null,
-            "✅ Docente creado:\nID: " + docente.getId() +
+            "Docente creado:\nID: " + docente.getId() +
             "\nNombre: " + docente.getNombre() +
             "\nCorreo: " + docente.getCorreo());
     }
@@ -76,7 +82,7 @@ public class MenuPrincipalVentana {
         Asignatura asignatura = new Asignatura(codigo, nombre, creditos);
 
         JOptionPane.showMessageDialog(null,
-            "✅ Asignatura creada:\nCódigo: " + asignatura.getCodigo() +
+            "Asignatura creada:\nCódigo: " + asignatura.getCodigo() +
             "\nNombre: " + asignatura.getNombre() +
             "\nCréditos: " + asignatura.getCreditos());
     }
@@ -96,7 +102,7 @@ public class MenuPrincipalVentana {
         Grupo grupo = new Grupo(id, nombre, asignatura, docente, horario);
 
         JOptionPane.showMessageDialog(null,
-            "✅ Grupo creado:\nID: " + grupo.getId() +
+            "Grupo creado:\nID: " + grupo.getId() +
             "\nNombre: " + grupo.getNombre() +
             "\nAsignatura: " + grupo.getAsignatura().getNombre() +
             "\nDocente: " + grupo.getDocente().getNombre() +

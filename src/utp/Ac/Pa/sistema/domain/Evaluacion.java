@@ -15,11 +15,6 @@ public class Evaluacion {
         this.asignatura = asignatura;
     }
 
-    public void registrarNota(double nuevaNota) {
-        this.nota = nuevaNota;
-    }
-
-    // Getters y Setters
     public String getTipo() { return tipo; }
     public double getNota() { return nota; }
     public String getFecha() { return fecha; }

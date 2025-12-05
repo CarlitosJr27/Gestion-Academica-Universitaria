@@ -1,48 +1,23 @@
 package utp.Ac.Pa.sistema.domain;
 
+import java.util.List;
+
 public class Reporte {
-    private Estudiante estudiante;
-    private double promedio;
-    private String observaciones;
+    private String titulo;
+    private List<String> contenido;
 
-    public Reporte(Estudiante estudiante, double promedio, String observaciones) {
-        this.estudiante = estudiante;
-        this.promedio = promedio;
-        this.observaciones = observaciones;
+    public Reporte(String titulo, List<String> contenido) {
+        this.titulo = titulo;
+        this.contenido = contenido;
     }
 
-    public void generar() {
-        System.out.println("Generando reporte para: " + estudiante.getNombre());
-        System.out.println("Promedio: " + promedio);
-        System.out.println("Observaciones: " + observaciones);
-    }
+    public String getTitulo() { return titulo; }
+    public List<String> getContenido() { return contenido; }
 
-    public void exportarPDF() {
-        System.out.println("Exportando reporte en PDF...");
-    }
-
-    // Getters y Setters
-    public Estudiante getEstudiante() {
-        return estudiante;
-    }
-
-    public void setEstudiante(Estudiante estudiante) {
-        this.estudiante = estudiante;
-    }
-
-    public double getPromedio() {
-        return promedio;
-    }
-
-    public void setPromedio(double promedio) {
-        this.promedio = promedio;
-    }
-
-    public String getObservaciones() {
-        return observaciones;
-    }
-
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
+    public void mostrar() {
+        System.out.println("=== " + titulo + " ===");
+        for (String linea : contenido) {
+            System.out.println(linea);
+        }
     }
 }

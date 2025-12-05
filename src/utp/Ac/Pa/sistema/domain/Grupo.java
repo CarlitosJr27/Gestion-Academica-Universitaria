@@ -15,7 +15,7 @@ public class Grupo {
     }
 
     public Grupo(String id2, String nombre, Asignatura asignatura2, Docente docente2, Horario horario) {
-        //TODO Auto-generated constructor stub
+        
     }
 
     public void agregarEstudiante(Estudiante estudiante) {
@@ -60,12 +60,12 @@ public class Grupo {
     }
 
     public String getNombre() {
-        // TODO Auto-generated method stub
+    
         throw new UnsupportedOperationException("Unimplemented method 'getNombre'");
     }
 
     public Horario getHorario() {
-        // TODO Auto-generated method stub
+        
         throw new UnsupportedOperationException("Unimplemented method 'getHorario'");
     }
 }

@@ -1,64 +1,33 @@
 package utp.Ac.Pa.sistema.utils;
 
 import javax.swing.JOptionPane;
-import utp.Ac.Pa.sistema.domain.Estudiante;
-import utp.Ac.Pa.sistema.domain.Usuario;
+import java.util.ArrayList;
+import java.util.List;
+import utp.Ac.Pa.sistema.domain.*;
+import static utp.Ac.Pa.sistema.utils.ValidationUtils.*;
 
 public class EstudianteVentana {
     public static void main(String[] args) {
         String id = solicitarNoVacio("ID del estudiante:");
-        String nombre = solicitarSoloLetras("Nombre del estudiante:");
+        String nombre = solicitarSoloLetras("Nombre del estudiante (solo letras):");
         String correo = solicitarCorreo("Correo del estudiante:");
 
         Usuario cuenta = new Usuario("usuarioEst", "clave123", null);
         Estudiante estudiante = new Estudiante(id, nombre, correo, cuenta);
 
+        // Carrera asociada
+        String carreraNombre = solicitarSoloLetras("Nombre de la carrera del estudiante:");
+        List<Asignatura> asignaturas = new ArrayList<>();
+        List<Requisito> requisitos = new ArrayList<>();
+        asignaturas.add(new Asignatura("INF101", "Programación", 5));
+        requisitos.add(new Requisito("Haber aprobado Matemáticas Básicas"));
+
+        Carrera carrera = new Carrera(carreraNombre, asignaturas, requisitos);
+
         JOptionPane.showMessageDialog(null,
             "Estudiante creado:\nID: " + estudiante.getId() +
             "\nNombre: " + estudiante.getNombre() +
-            "\nCorreo: " + estudiante.getCorreo());
-    }
-
-    private static String solicitarNoVacio(String mensaje) {
-        String valor;
-        while (true) {
-            valor = JOptionPane.showInputDialog(mensaje);
-            if (valor == null) {
-                JOptionPane.showMessageDialog(null, "Operación cancelada.");
-                System.exit(0);
-            }
-            if (!valor.trim().isEmpty()) return valor.trim();
-            JOptionPane.showMessageDialog(null, "Valor no válido. Intente de nuevo.");
-        }
-    }
-
-    private static String solicitarSoloLetras(String mensaje) {
-        String valor;
-        while (true) {
-            valor = JOptionPane.showInputDialog(mensaje);
-            if (valor == null) {
-                JOptionPane.showMessageDialog(null, "Operación cancelada.");
-                System.exit(0);
-            }
-            valor = valor.trim();
-            if (!valor.isEmpty() && valor.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+")) return valor;
-            JOptionPane.showMessageDialog(null, "Nombre inválido. Solo se permiten letras y espacios.");
-        }
-    }
-
-    private static String solicitarCorreo(String mensaje) {
-        String valor;
-        // Patrón simple de correo: texto@texto.dominio
-        String regex = "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$";
-        while (true) {
-            valor = JOptionPane.showInputDialog(mensaje);
-            if (valor == null) {
-                JOptionPane.showMessageDialog(null, "Operación cancelada.");
-                System.exit(0);
-            }
-            valor = valor.trim();
-            if (!valor.isEmpty() && valor.matches(regex)) return valor;
-            JOptionPane.showMessageDialog(null, "Correo inválido. Ejemplo: usuario@dominio.com");
-        }
+            "\nCorreo: " + estudiante.getCorreo() +
+            "\nCarrera: " + carrera.getNombre());
     }
 }
