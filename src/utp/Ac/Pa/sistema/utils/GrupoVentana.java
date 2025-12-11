@@ -1,7 +1,6 @@
 package utp.Ac.Pa.sistema.utils;
 
 import javax.swing.JOptionPane;
-import utp.Ac.Pa.sistema.domain.*;
 import java.util.*;
 
 public class GrupoVentana {

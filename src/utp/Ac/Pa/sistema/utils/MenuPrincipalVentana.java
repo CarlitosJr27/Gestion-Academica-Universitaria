@@ -8,15 +8,13 @@ public class MenuPrincipalVentana {
 
         while (continuar) {
             String menu = "Menú Principal\n\n"
-                    + "1. Registrar Estudiante\n"
-                    + "2. Registrar Docente\n"
-                    + "3. Registrar Asignatura\n"
-                    + "4. Consultar Grupo\n"
-                    + "5. Consultar Carrera\n"
-                    + "6. Reporte\n"
-                    + "7. Salir\n\n"
-                    + "Ingrese una opción:";
-
+                   + "1. Registrar Usuario\n"
+                   + "2. Registrar Asignatura\n"
+                   + "3. Consultar Grupo\n"
+                   + "4. Consultar Carrera\n"
+                   + "5. Reporte\n"
+                   + "6. Salir\n\n"
+                   + "Ingrese una opción:";
             String opcion = JOptionPane.showInputDialog(menu);
 
             if (opcion == null) {
@@ -26,28 +24,25 @@ public class MenuPrincipalVentana {
 
             switch (opcion) {
                 case "1":
-                    EstudianteVentana.main(args);
+                    UsuarioVentana.main(args);
                     break;
                 case "2":
-                    DocenteVentana.main(args);
-                    break;
-                case "3":
                     AsignaturaVentana.main(args);
                     break;
-                case "4":
+                case "3":
                     GrupoVentana.main(args);
                     break;
-                case "5":
+                case "4":
                     CarreraVentana.main(args);
                     break;
-                case "6":
+                case "5":
                     ReporteVentana.main(args);
-                    return;
-                case "7":
+                    break;
+                case "6":
                     continuar = false;
                     break;
                 default:
-                    JOptionPane.showMessageDialog(null, "⚠️ Opción inválida.");
+                    JOptionPane.showMessageDialog(null, "Opción inválida.");
             }
         }
     }
