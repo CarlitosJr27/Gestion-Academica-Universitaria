@@ -1,36 +1,44 @@
 package utp.Ac.Pa.sistema.utils;
 
-import utp.Ac.Pa.sistema.domain.Asignatura;
-import utp.Ac.Pa.sistema.domain.Docente;
-import utp.Ac.Pa.sistema.domain.Grupo;
-import utp.Ac.Pa.sistema.domain.Horario;
-import utp.Ac.Pa.sistema.domain.Usuario;
-
-import static utp.Ac.Pa.sistema.utils.ValidationUtils.*;
-
 import javax.swing.JOptionPane;
+import utp.Ac.Pa.sistema.domain.*;
+import java.util.*;
 
 public class GrupoVentana {
     public static void main(String[] args) {
-        String id = solicitarNoVacio("ID del grupo:");
-        String nombre = solicitarSoloLetras("Nombre del grupo (solo letras):");
+        // Selección de carrera
+        String[] opcionesCarrera = {"Licenciatura en Ciberseguridad", "Programación", "Redes"};
+        String seleccionCarrera = (String) JOptionPane.showInputDialog(
+                null,
+                "Seleccione una carrera para registrar grupo:",
+                "Carrera",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                opcionesCarrera,
+                opcionesCarrera[0]);
 
-        Asignatura asignatura = new Asignatura("INF101", "Programación", 5);
-        Docente docente = new Docente("D1", "Profesor Juan", "juan@mail.com", new Usuario("juan", "abcd", null));
+        if (seleccionCarrera == null) {
+            JOptionPane.showMessageDialog(null, "❌ Operación cancelada.");
+            System.exit(0);
+        }
 
-        String dia = solicitarSoloLetras("Día del horario (solo letras):");
-        String horaInicio = solicitarNoVacio("Hora de inicio (ejemplo: 08:00):");
-        String horaFin = solicitarNoVacio("Hora de fin (ejemplo: 10:00):");
-        Horario horario = new Horario(dia, horaInicio, horaFin);
+        // Definir grupos por turno
+        Map<String, List<String>> gruposPorTurno = new LinkedHashMap<>();
+        gruposPorTurno.put("Mañana (7:00 a.m - 12:45 p.m)", Arrays.asList("Grupo M1", "Grupo M2", "Grupo M3"));
+        gruposPorTurno.put("Tarde (12:50 p.m - 5:45 p.m)", Arrays.asList("Grupo T1", "Grupo T2", "Grupo T3"));
+        gruposPorTurno.put("Noche (5:50 p.m - 10:45 p.m)", Arrays.asList("Grupo N1", "Grupo N2", "Grupo N3"));
 
-        Grupo grupo = new Grupo(id, nombre, asignatura, docente, horario);
+        // Construir mensaje con los grupos
+        StringBuilder mensaje = new StringBuilder("✅ Información de grupos para la carrera: " + seleccionCarrera + "\n\n");
+        for (Map.Entry<String, List<String>> entry : gruposPorTurno.entrySet()) {
+            mensaje.append(entry.getKey()).append(":\n");
+            for (String grupo : entry.getValue()) {
+                mensaje.append(" - ").append(grupo).append("\n");
+            }
+            mensaje.append("\n");
+        }
 
-        JOptionPane.showMessageDialog(null,
-            "Grupo creado:\nID: " + grupo.getId() +
-            "\nNombre: " + grupo.getNombre() +
-            "\nAsignatura: " + grupo.getAsignatura().getNombre() +
-            "\nDocente: " + grupo.getDocente().getNombre() +
-            "\nHorario: " + grupo.getHorario().getDia() + " " +
-            grupo.getHorario().getHoraInicio() + "-" + grupo.getHorario().getHoraFin());
+        // Mostrar información
+        JOptionPane.showMessageDialog(null, mensaje.toString());
     }
 }

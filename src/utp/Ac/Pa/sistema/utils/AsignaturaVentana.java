@@ -12,7 +12,7 @@ public class AsignaturaVentana {
         Asignatura asignatura = new Asignatura(codigo, nombre, creditos);
 
         JOptionPane.showMessageDialog(null,
-            "Asignatura creada:\nCódigo: " + asignatura.getCodigo() +
+            "Asignatura Agregada:\nCódigo: " + asignatura.getCodigo() +
             "\nNombre: " + asignatura.getNombre() +
             "\nCréditos: " + asignatura.getCreditos());
     }
