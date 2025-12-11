@@ -37,7 +37,7 @@ public class MenuPrincipalVentana {
                     break;
                 case "5":
                     ReporteVentana.main(args);
-                    break;
+                    return;
                 case "6":
                     continuar = false;
                     break;

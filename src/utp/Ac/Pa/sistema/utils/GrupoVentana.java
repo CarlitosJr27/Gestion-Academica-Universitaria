@@ -9,7 +9,7 @@ public class GrupoVentana {
         String[] opcionesCarrera = {"Licenciatura en Ciberseguridad", "Programación", "Redes"};
         String seleccionCarrera = (String) JOptionPane.showInputDialog(
                 null,
-                "Seleccione una carrera para registrar grupo:",
+                "Seleccione una carrera para consultar grupo:",
                 "Carrera",
                 JOptionPane.QUESTION_MESSAGE,
                 null,
@@ -17,7 +17,7 @@ public class GrupoVentana {
                 opcionesCarrera[0]);
 
         if (seleccionCarrera == null) {
-            JOptionPane.showMessageDialog(null, "❌ Operación cancelada.");
+            JOptionPane.showMessageDialog(null, "Operación cancelada.");
             System.exit(0);
         }
 
@@ -28,7 +28,7 @@ public class GrupoVentana {
         gruposPorTurno.put("Noche (5:50 p.m - 10:45 p.m)", Arrays.asList("Grupo N1", "Grupo N2", "Grupo N3"));
 
         // Construir mensaje con los grupos
-        StringBuilder mensaje = new StringBuilder("✅ Información de grupos para la carrera: " + seleccionCarrera + "\n\n");
+        StringBuilder mensaje = new StringBuilder("Información de grupos para la carrera: " + seleccionCarrera + "\n\n");
         for (Map.Entry<String, List<String>> entry : gruposPorTurno.entrySet()) {
             mensaje.append(entry.getKey()).append(":\n");
             for (String grupo : entry.getValue()) {

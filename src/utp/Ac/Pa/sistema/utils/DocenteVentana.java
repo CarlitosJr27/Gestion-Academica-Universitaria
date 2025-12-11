@@ -14,7 +14,7 @@ public class DocenteVentana {
         Docente docente = new Docente(id, nombre, correo, cuenta);
 
         JOptionPane.showMessageDialog(null,
-            "✅ Docente creado:\nID: " + docente.getId() +
+            "Docente creado:\nID: " + docente.getId() +
             "\nNombre: " + docente.getNombre() +
             "\nCorreo: " + docente.getCorreo());
 
@@ -30,7 +30,7 @@ public class DocenteVentana {
                 tipos[0]);
 
         if (tipoSeleccionado == null) {
-            JOptionPane.showMessageDialog(null, "❌ Operación cancelada.");
+            JOptionPane.showMessageDialog(null, "Operación cancelada.");
             System.exit(0);
         }
 
@@ -41,17 +41,17 @@ public class DocenteVentana {
             try {
                 String entrada = JOptionPane.showInputDialog("Ingrese la nota (1 - 100):");
                 if (entrada == null) {
-                    JOptionPane.showMessageDialog(null, "❌ Operación cancelada.");
+                    JOptionPane.showMessageDialog(null, "Operación cancelada.");
                     System.exit(0);
                 }
                 nota = Integer.parseInt(entrada);
                 if (nota >= 1 && nota <= 100) {
                     valido = true;
                 } else {
-                    JOptionPane.showMessageDialog(null, "⚠️ La nota debe estar entre 1 y 100.");
+                    JOptionPane.showMessageDialog(null, "La nota debe estar entre 1 y 100.");
                 }
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "⚠️ Solo se permiten números.");
+                JOptionPane.showMessageDialog(null, "Solo se permiten números.");
             }
         }
 
@@ -65,7 +65,7 @@ public class DocenteVentana {
 
         // Mostrar resultado final
         JOptionPane.showMessageDialog(null,
-            "✅ Evaluación registrada:\n" +
+            "Evaluación registrada:\n" +
             "Docente: " + docente.getNombre() + "\n" +
             "Tipo de evaluación: " + tipoSeleccionado + "\n" +
             "Nota: " + nota + "\n" +

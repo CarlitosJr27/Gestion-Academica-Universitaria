@@ -3,8 +3,6 @@ package utp.Ac.Pa.sistema.utils;
 import javax.swing.JOptionPane;
 import utp.Ac.Pa.sistema.domain.*;
 import static utp.Ac.Pa.sistema.utils.ValidationUtils.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class UsuarioVentana {
     public static void main(String[] args) {

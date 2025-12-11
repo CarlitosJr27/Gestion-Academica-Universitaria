@@ -22,7 +22,7 @@ public class HorarioVentana {
             valor = JOptionPane.showInputDialog(mensaje);
             if (valor == null) System.exit(0);
             if (!valor.trim().isEmpty()) return valor.trim();
-            JOptionPane.showMessageDialog(null, "❌ Valor no válido. Intente de nuevo.");
+            JOptionPane.showMessageDialog(null, "Valor no válido. Intente de nuevo.");
         }
     }
 
@@ -33,7 +33,7 @@ public class HorarioVentana {
             if (valor == null) System.exit(0);
             valor = valor.trim();
             if (!valor.isEmpty() && valor.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+")) return valor;
-            JOptionPane.showMessageDialog(null, "❌ Solo se permiten letras y espacios.");
+            JOptionPane.showMessageDialog(null, "Solo se permiten letras y espacios.");
         }
     }
 }
